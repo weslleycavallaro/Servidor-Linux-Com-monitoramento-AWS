@@ -1,0 +1,3 @@
+# Servidor-Linux-Com-monitoramento-AWS
+
+Este projeto utiliza a infraestrutura da AWS em conjunto com o NGINX para fornecer uma solução de gerenciamento e automação de monitoramento atraves de logs e notificações. O NGINX é configurado como servidor web e balanceador de carga, garantindo alta disponibilidade e desempenho. O monitoramento e feito atraves de um script em Bash que realiza chamadas HTTP para o dominio do site, rodando de maneira automatizada atraves do cron. Notificações em tempo real são enviadas automaticamente os supervisores do projeto atraves de um WebHook do Slack, permitindo respostas rápidas a incidentes e garantindo a continuidade do serviço.
