@@ -70,4 +70,19 @@ Este tutorial irá guiá-lo através do processo de criação de uma VPC na AWS,
    -  **ami**: Altere para o seu tipo de AMI.
    - **ip-da-instancia**: Altere para o ip da sua instancia EC2.
 
+---
 
+# ETAPA2: Configuração do Servidor Web
+
+Este tutorial irá guiá-lo através do processo de instalacao do Nginx na EC2, criar uma pagina html simples e configurar o Nginx.
+
+---
+
+## 1. Instalar o servidor Nginx na EC2
+
+### 1.1. Criar a VPC
+
+1.1.1 Acesse o [Console AWS](https://aws.amazon.com/console/) e navegue até a seção **VPC**.
+1.1.2 Clique em **Create VPC** e siga as instruções.
+   - Defina um **CIDR Block** (por exemplo, `10.0.0.0/16`).
+   - Escolha um nome para a sua VPC.
