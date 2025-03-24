@@ -126,7 +126,14 @@ Este tutorial irá guiá-lo através do processo de instalacao do Nginx na EC2, 
 
 ## 3. Configurar o Nginx
 
-### 2.1. 
+### 3.1. Reiniciar de maneira automatica se o servico parar
+
+3.1.1. Edite o arquivo nginx.service
+`nano /lib/systemd/system/nginx.service`
+
+3.1.2 Na secao service, adicione as duas linhas abaixo
+`Restart=always
+RestartSec=5`
 
 ---
 
