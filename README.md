@@ -47,15 +47,19 @@ Este tutorial irá guiá-lo através do processo de criação de uma VPC na AWS,
 2.1.2. Escolha uma **Amazon Machine Image (AMI)** baseada em Linux, como **Ubuntu**, **Debian** ou **Amazon Linux**.
 2.1.3. Selecione o tipo de instância desejado (por exemplo, **t2.micro** para fins de teste).
 
-### 2.2. Instalar na Sub-rede Pública
+### 2.2 Par de chaves
 
-2.2.1. Durante a configuração da instância, em **Network**, selecione a **VPC** e a **sub-rede pública** (ex: `10.0.1.0/24`).
-2.2.2. Ative a opção **Auto-assign Public IP** para garantir que sua instância tenha um IP público.
+2.2.1 Crie um par de chaves para ser associado a instancia.
 
-### 2.3. Associar um Security Group
+### 2.3. Instalar na Sub-rede Pública
 
-2.3.1. Crie um novo **Security Group** ou selecione um existente.
-2.3.2. Adicione as seguintes regras de entrada:
+2.3.1. Durante a configuração da instância, em **Network**, selecione a **VPC** e a **sub-rede pública** (ex: `10.0.1.0/24`).
+2.3.2. Ative a opção **Auto-assign Public IP** para garantir que sua instância tenha um IP público.
+
+### 2.4. Associar um Security Group
+
+2.4.1. Crie um novo **Security Group** ou selecione um existente.
+2.4.2. Adicione as seguintes regras de entrada:
    - **HTTP (porta 80)**: permitir tráfego de qualquer origem.
    - **SSH (porta 22)**: permitir tráfego de sua rede (opcional, se desejar restringir o acesso via SSH).
 
