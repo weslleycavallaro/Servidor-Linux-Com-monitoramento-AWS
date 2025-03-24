@@ -80,9 +80,48 @@ Este tutorial irá guiá-lo através do processo de instalacao do Nginx na EC2, 
 
 ## 1. Instalar o servidor Nginx na EC2
 
-### 1.1. Criar a VPC
+### 1.1. Instalar o Nginx
 
-1.1.1 Acesse o [Console AWS](https://aws.amazon.com/console/) e navegue até a seção **VPC**.
-1.1.2 Clique em **Create VPC** e siga as instruções.
-   - Defina um **CIDR Block** (por exemplo, `10.0.0.0/16`).
-   - Escolha um nome para a sua VPC.
+1.1.1. Acessado o terminal, atualize os pacotes do sistema.
+`sudo apt update && sudo apt upgrade -y`
+1.1.2. Instale o Nginx.
+`sudo apt install nginx -y`
+1.1.3. Inicialize o servico.
+`sudo systemctl start nginx`
+1.1.4. Verifique o status do servico.
+`sudo systemctl status nginx`
+1.1.5. Inicializar o servico junto com o sistema.
+`sudo systemctl enable nginx`
+
+---
+
+## 2. Criar uma pagina HTML simples
+
+### 2.1. Criar pagina html
+
+2.1.1. Atraves de seu editor de arquivos de preferencia, crie um arquivo `index.html` no diretorio /var/www/html/ e monte sua estrutura html.
+2.1.2. Em seu navegador de internet, insira o ip da sua instancia EC2 e voce vera sua pagina rodando se tudo ocorrer normalmente.
+
+---
+
+## 3. Configurar o Nginx
+
+### 2.1. 
+
+---
+
+# ETAPA3: Monitoramento e Notificacoes
+
+Este tutorial irá guiá-lo através do processo de criacao de um script de monitoramento, configuracao do webhook do Slack e automatizacao com cron.
+
+---
+
+## 1. Criacao do Script em Bash
+
+### 1.1. Criando Script
+
+1.1.1. Crie um arquivo .sh no diretorio padrao de binarios do Linux.
+`touch /usr/local/bin/monitorar_site.sh`
+1.1.2. Modifique a execucao do arquivo
+`chmod +x /usr/local/bin/monitorar_site.sh`
+1.1.3. 
