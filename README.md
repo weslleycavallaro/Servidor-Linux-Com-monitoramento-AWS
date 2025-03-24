@@ -17,6 +17,7 @@ Este tutorial irá guiá-lo através do processo de criação de uma VPC na AWS,
 1.1.2 Clique em **Create VPC** e siga as instruções.
    - Defina um **CIDR Block** (por exemplo, `10.0.0.0/16`).
    - Escolha um nome para a sua VPC.
+![Captura de Tela](readme_images/vpc.png)
 
 ### 1.2. Criar Sub-redes Públicas e Privadas
 
