@@ -18,7 +18,7 @@ Este tutorial irá guiá-lo através do processo de criação de uma VPC na AWS,
    - Defina um **CIDR Block** (por exemplo, `10.0.0.0/16`).
    - Escolha um nome para a sua VPC.
 
-![Captura de Tela](readme_images/vpc.png)
+![VPC](readme_images/vpc.png)
 
 ### 1.2. Criar Sub-redes Públicas e Privadas
 
@@ -31,11 +31,17 @@ Este tutorial irá guiá-lo através do processo de criação de uma VPC na AWS,
    - Sub-rede 3: `10.0.3.0/24` (exemplo de sub-rede privada 1).
    - Sub-rede 4: `10.0.4.0/24` (exemplo de sub-rede privada 2).
 
+![VPC](readme_images/sr.png)
+
 ### 1.3. Criar uma Internet Gateway
 
 1.3.1. No painel **VPC Dashboard**, clique em **Internet Gateways** e depois em **Create Internet Gateway**.
 1.3.2. Dê um nome para o **Internet Gateway** e clique em **Create**.
 1.3.3. Após a criação, clique em **Attach to VPC** e selecione a VPC criada anteriormente.
+
+![VPC](readme_images/gateway.png)
+
+![VPC](readme_images/previa_vpc.png)
 
 ---
 
@@ -47,9 +53,15 @@ Este tutorial irá guiá-lo através do processo de criação de uma VPC na AWS,
 2.1.2. Escolha uma **Amazon Machine Image (AMI)** baseada em Linux, como **Ubuntu**, **Debian** ou **Amazon Linux**.
 2.1.3. Selecione o tipo de instância desejado (por exemplo, **t2.micro** para fins de teste).
 
+![VPC](readme_images/ec2.png)
+
 ### 2.2 Par de chaves
 
 2.2.1 Crie um par de chaves para ser associado a instancia.
+
+![VPC](readme_images/chaves.png)
+
+![VPC](readme_images/chave_ec2.png)
 
 ### 2.3. Instalar na Sub-rede Pública
 
@@ -62,6 +74,8 @@ Este tutorial irá guiá-lo através do processo de criação de uma VPC na AWS,
 2.4.2. Adicione as seguintes regras de entrada:
    - **HTTP (porta 80)**: permitir tráfego de qualquer origem.
    - **SSH (porta 22)**: permitir tráfego de sua rede (opcional, se desejar restringir o acesso via SSH).
+
+![VPC](readme_images/rede_sg.png)
 
 ---
 
