@@ -186,3 +186,8 @@ Webhooks são uma forma simples de enviar dados para o Slack a partir de outros 
 3.1.2. Adicione o seguinte comando ao fim do arquivo.
 `*/1 * * * * /usr/local/bin/monitorar_site.sh`
 Isso fara com que o cron execute o script de monitoramento a cada 1 minuto.
+
+
+--
+---
+----
