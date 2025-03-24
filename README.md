@@ -4,6 +4,11 @@ Este projeto utiliza a infraestrutura da AWS em conjunto com o NGINX para fornec
 
 ---
 
+### Para uma utilizacao mais rapida, voce pode clonar esse repositorio em sua instancia
+`git clone https://github.com/seu-usuario/seu-repositorio.git`
+
+---
+
 # ETAPA 1: Configuração do Ambiente CLoud AWS
 
 Este tutorial irá guiá-lo através do processo de criação de uma VPC na AWS, configuração de sub-redes públicas e privadas, e criação de uma instância EC2 com acesso via SSH.
