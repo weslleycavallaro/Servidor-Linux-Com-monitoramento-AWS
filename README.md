@@ -5,7 +5,7 @@ Este projeto utiliza a infraestrutura da AWS em conjunto com o NGINX para fornec
 ---
 
 ### Para uma utilizacao mais rapida, voce pode clonar esse repositorio em sua instancia
-`git clone https://github.com/seu-usuario/seu-repositorio.git`
+`git clone https://github.com/weslleycavallaro/Servidor-Linux-Com-monitoramento-AWS.git`
 
 ---
 
