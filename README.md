@@ -124,4 +124,28 @@ Este tutorial irá guiá-lo através do processo de criacao de um script de moni
 `touch /usr/local/bin/monitorar_site.sh`
 1.1.2. Modifique a execucao do arquivo
 `chmod +x /usr/local/bin/monitorar_site.sh`
-1.1.3. 
+1.1.3. Adicione o comando abaixo no arquivo atraves de seu editor de arquivo.
+
+#!/usr/bin/env bash
+
+# Variaveis locais
+source variaveis.env
+
+# Local do arquivo onde os logs serao gravados
+ARQUIVO_LOG="/var/log/monitoramento.log"
+
+# Resposta HTTP recebida da URL
+RESPOSTA_HTTP=$(curl -o /dev/null -s -w "%{http_code}" $URL)
+
+# Armazena a data atual para salvar na log do sistema
+DATA_ATUAL=$(date "+%Y-%m-%d %H:%M:%S")
+
+# Compara se a resposta HTTP recebida possui o codigo 200(OK)
+if [ "$RESPOSTA_HTTP" -eq 200 ]; then
+        # Grava a resposta como ok no arquivo de log
+        echo "$DATA_ATUAL - O SITE ESTA OPERANDO COMO O ESPERADO. Codigo: $RESPOSTA_HTTP" >> $ARQUIVO_LOG
+else
+        # Grava a resposta como falha no arquivo de log
+        echo "$DATA_ATUAL - FALHA AO ACESSAR O SITE. Codigo: $RESPOSTA_HTTP" >> $ARQUIVO_LOG
+        curl -X POST -H 'Content-type: application/json' --data '{"text":"A aplicacao apresentou falha! Verifique o arquivo de log."}' $WEBHOOK 
+fi
