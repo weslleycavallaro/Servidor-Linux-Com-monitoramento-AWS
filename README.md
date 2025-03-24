@@ -4,7 +4,7 @@ Este projeto utiliza a infraestrutura da AWS em conjunto com o NGINX para fornec
 
 ---
 
-# ETAPA1: Configuração do Ambiente CLoud AWS
+# ETAPA 1: Configuração do Ambiente CLoud AWS
 
 Este tutorial irá guiá-lo através do processo de criação de uma VPC na AWS, configuração de sub-redes públicas e privadas, e criação de uma instância EC2 com acesso via SSH.
 
@@ -72,7 +72,7 @@ Este tutorial irá guiá-lo através do processo de criação de uma VPC na AWS,
 
 ---
 
-# ETAPA2: Configuração do Servidor Web
+# ETAPA 2: Configuração do Servidor Web
 
 Este tutorial irá guiá-lo através do processo de instalacao do Nginx na EC2, criar uma pagina html simples e configurar o Nginx.
 
@@ -110,7 +110,7 @@ Este tutorial irá guiá-lo através do processo de instalacao do Nginx na EC2, 
 
 ---
 
-# ETAPA3: Monitoramento e Notificacoes
+# ETAPA 3: Monitoramento e Notificacoes
 
 Este tutorial irá guiá-lo através do processo de criacao de um script de monitoramento, configuracao do webhook do Slack e automatizacao com cron.
 
@@ -130,16 +130,16 @@ O script de monitoramento e essencial para garantir a total operancia do servido
 
 ---
 
-### 2. Configurando Webhook do Slack
+## 2. Configurando Webhook do Slack
 
 Webhooks são uma forma simples de enviar dados para o Slack a partir de outros aplicativos e serviços. Eles permitem que você envie mensagens para canais do Slack de maneira automatizada. Aqui, vamos explicar como configurar um Webhook no Slack.
 
-## 2.1. Acesse o Slack API
+### 2.1. Acesse o Slack API
 
 2.1.1. Acesse [Slack API](https://api.slack.com/).
 2.1.2. Faça login com a sua conta Slack.
 
-## 2.2. Crie um Novo App
+### 2.2. Crie um Novo App
 
 2.2.1. No menu lateral esquerdo, clique em **Your Apps**.
 2.2.2. Clique no botão **Create New App**.
@@ -147,18 +147,18 @@ Webhooks são uma forma simples de enviar dados para o Slack a partir de outros 
 2.2.4. Dê um nome para o seu app (por exemplo, "Webhook de Integração") e selecione o workspace onde você deseja usar o Webhook.
 2.2.5. Clique em **Create App**.
 
-## 2.3 Ative o Webhook de Entrada
+### 2.3 Ative o Webhook de Entrada
 
 2.3.1. Após criar o app, no menu à esquerda, selecione **Incoming Webhooks**.
 2.3.2. No topo da página, ative a opção **Activate Incoming Webhooks**.
 2.3.3. Em seguida, clique em **Add New Webhook to Workspace**.
 
-## 2.4. Escolha o Canal
+### 2.4. Escolha o Canal
 
 2.4.1. Você será solicitado a escolher um canal para o qual as mensagens enviadas pelo Webhook irão. Escolha o canal desejado (por exemplo, "#geral" ou outro canal específico).
 2.4.2. Clique em **Permitir** para conceder permissão ao Webhook.
 
-## 2.5. Copie a URL do Webhook
+### 2.5. Copie a URL do Webhook
 
 2.5.1. Após permitir o acesso, o Slack irá gerar uma URL única do Webhook.
 2.5.2. Copie essa URL, pois ela será usada para enviar mensagens para o Slack.
@@ -166,9 +166,9 @@ Webhooks são uma forma simples de enviar dados para o Slack a partir de outros 
 
 ---
 
-### 3. Criar arquivo de logs.
+## 3. Criar arquivo de logs.
 
-## 3.1. Criando arquivo
+### 3.1. Criando arquivo
 
 3.1.1. No diretorio /var/log crie um arquivo chamado monitoramento.log
 `touch /var/log/monitoramento.log`
@@ -177,17 +177,39 @@ Webhooks são uma forma simples de enviar dados para o Slack a partir de outros 
 
 ---
 
-### 3. Cronfigurar Script para rodar a cada 1 minuto utilizando cron
+## 4. Cronfigurar Script para rodar a cada 1 minuto utilizando cron
 
-## 3.1. Edite a tabela do cron
+### 4.1. Edite a tabela do cron
 
-3.1.1. Execute o comando abaiuxo para acessar a tabela do cron no modo edicao.
+4.1.1. Execute o comando abaiuxo para acessar a tabela do cron no modo edicao.
 `crontab -e`
-3.1.2. Adicione o seguinte comando ao fim do arquivo.
+4.1.2. Adicione o seguinte comando ao fim do arquivo.
 `*/1 * * * * /usr/local/bin/monitorar_site.sh`
 Isso fara com que o cron execute o script de monitoramento a cada 1 minuto.
 
-
---
 ---
-----
+
+## 5. Configurando as variaveis de ambiente.
+
+### 5.1 Criando arquivo
+
+5.1.1 No diretorio /usr/local/bin/ crie um arquivo chamado variaveis.env.
+`touch /usr/local/bin/variaveis.env`
+5.1.2 Adicione no arquivo usando seu editor de arquivos 2 variaveis:
+   `URL="http://ip_da_sua_instancia"`
+   `WEBHOOK="https://url_do_seu_webhook"`
+
+---
+
+# ETAPA 4: Automacao e testes
+
+## 1. Crir script de teste
+
+O script de testes engloba uma serie de comandos essenciais para testar e garantir o funcionamento correto do servidor.
+
+### 1.1. Criando arquivo
+
+1.1.1. No diretorio /usr/local/bin/ crie um arquivo chamado testes.sh
+`touch /usr/local/bin/testes.sh`
+1.1.2 De a permicao de execucao para todos
+`chmod a+x /usr/local/bin/testes.sh`
