@@ -118,6 +118,8 @@ Este tutorial irá guiá-lo através do processo de criacao de um script de moni
 
 ## 1. Criacao do Script em Bash
 
+O script de monitoramento e essencial para garantir a total operancia do servidor web. Ele faz requisicoes HTTP  e grava a resposta em um arquivo de log.
+
 ### 1.1. Criando Script
 
 1.1.1. Crie um arquivo .sh no diretorio padrao de binarios do Linux.
@@ -127,3 +129,60 @@ Este tutorial irá guiá-lo através do processo de criacao de um script de moni
 1.1.3. Adicione o conteudo do arquivo monitorar_site.sh presente no repositorio para o seu arquivo atraves de seu editor de arquivo.
 
 ---
+
+### 2. Configurando Webhook do Slack
+
+Webhooks são uma forma simples de enviar dados para o Slack a partir de outros aplicativos e serviços. Eles permitem que você envie mensagens para canais do Slack de maneira automatizada. Aqui, vamos explicar como configurar um Webhook no Slack.
+
+## 2.1. Acesse o Slack API
+
+2.1.1. Acesse [Slack API](https://api.slack.com/).
+2.1.2. Faça login com a sua conta Slack.
+
+## 2.2. Crie um Novo App
+
+2.2.1. No menu lateral esquerdo, clique em **Your Apps**.
+2.2.2. Clique no botão **Create New App**.
+2.2.3. Escolha a opção **From Scratch**.
+2.2.4. Dê um nome para o seu app (por exemplo, "Webhook de Integração") e selecione o workspace onde você deseja usar o Webhook.
+2.2.5. Clique em **Create App**.
+
+## 2.3 Ative o Webhook de Entrada
+
+2.3.1. Após criar o app, no menu à esquerda, selecione **Incoming Webhooks**.
+2.3.2. No topo da página, ative a opção **Activate Incoming Webhooks**.
+2.3.3. Em seguida, clique em **Add New Webhook to Workspace**.
+
+## 2.4. Escolha o Canal
+
+2.4.1. Você será solicitado a escolher um canal para o qual as mensagens enviadas pelo Webhook irão. Escolha o canal desejado (por exemplo, "#geral" ou outro canal específico).
+2.4.2. Clique em **Permitir** para conceder permissão ao Webhook.
+
+## 2.5. Copie a URL do Webhook
+
+2.5.1. Após permitir o acesso, o Slack irá gerar uma URL única do Webhook.
+2.5.2. Copie essa URL, pois ela será usada para enviar mensagens para o Slack.
+`https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX`
+
+---
+
+### 3. Criar arquivo de logs.
+
+## 3.1. Criando arquivo
+
+3.1.1. No diretorio /var/log crie um arquivo chamado monitoramento.log
+`touch /var/log/monitoramento.log`
+3.1.2 COnfigure as permicoes de leitura e escrita.
+`chmod a+rw /var/log/monitoramento.log`
+
+---
+
+### 3. Cronfigurar Script para rodar a cada 1 minuto utilizando cron
+
+## 3.1. Edite a tabela do cron
+
+3.1.1. Execute o comando abaiuxo para acessar a tabela do cron no modo edicao.
+`crontab -e`
+3.1.2. Adicione o seguinte comando ao fim do arquivo.
+`*/1 * * * * /usr/local/bin/monitorar_site.sh`
+Isso fara com que o cron execute o script de monitoramento a cada 1 minuto.
