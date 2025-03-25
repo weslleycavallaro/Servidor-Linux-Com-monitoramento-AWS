@@ -285,3 +285,4 @@ O script de testes engloba uma serie de comandos essenciais para testar e garant
 
 Exemplo de funcionamento:
 
+![Teste](readme_images/script_teste.png)
