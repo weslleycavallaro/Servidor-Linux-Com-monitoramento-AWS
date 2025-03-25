@@ -277,12 +277,26 @@ O script de testes engloba uma serie de comandos essenciais para testar e garant
 
 ### 1.1. Criando arquivo
 
-1.1.1. No diretorio /usr/local/bin/ crie um arquivo chamado testes.sh
+1.1.1. No diretorio /usr/local/bin/ crie um arquivo chamado testes.sh.
 `touch /usr/local/bin/testes.sh`
 
-1.1.2 De a permicao de execucao para todos
+1.1.2. De a permicao de execucao para todos.
 `chmod a+x /usr/local/bin/testes.sh`
 
-Exemplo de funcionamento:
+## 2. Testes:
+
+2.1. Rodando script de teste
 
 ![Teste](readme_images/script_teste.png)
+
+2.2. Parando o processo do Nginx.
+
+![Parando_Nginx](readme_images/servidor_desligado.png)
+
+2.3. Status do Nginx
+
+![Status_Nginx](readme_images/status_nginx.png)
+
+2.4. Notificacoes do Slack
+
+![Notificacoes](readme_images/slack.png)
