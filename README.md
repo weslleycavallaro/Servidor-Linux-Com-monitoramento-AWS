@@ -19,6 +19,7 @@ Este tutorial irá guiá-lo através do processo de criação de uma VPC na AWS,
 
 ### 1.1. Criar a VPC
 1.1.1 Acesse o [Console AWS](https://aws.amazon.com/console/) e navegue até a seção **VPC**.
+
 1.1.2 Clique em **Create VPC** e siga as instruções.
    - Defina um **CIDR Block** (por exemplo, `10.0.0.0/16`).
    - Escolha um nome para a sua VPC.
@@ -28,6 +29,7 @@ Este tutorial irá guiá-lo através do processo de criação de uma VPC na AWS,
 ### 1.2. Criar Sub-redes Públicas e Privadas
 
 1.2.1. No painel **VPC Dashboard**, clique em **Subnets** e depois em **Create subnet**.
+
 1.2.2. Crie **2 sub-redes públicas**:
    - Sub-rede 1: `10.0.1.0/24` (exemplo de sub-rede pública 1).
    - Sub-rede 2: `10.0.2.0/24` (exemplo de sub-rede pública 2).
@@ -41,7 +43,9 @@ Este tutorial irá guiá-lo através do processo de criação de uma VPC na AWS,
 ### 1.3. Criar uma Internet Gateway
 
 1.3.1. No painel **VPC Dashboard**, clique em **Internet Gateways** e depois em **Create Internet Gateway**.
+
 1.3.2. Dê um nome para o **Internet Gateway** e clique em **Create**.
+
 1.3.3. Após a criação, clique em **Attach to VPC** e selecione a VPC criada anteriormente.
 
 ![VPC](readme_images/gateway.png)
@@ -55,7 +59,9 @@ Este tutorial irá guiá-lo através do processo de criação de uma VPC na AWS,
 ### 2.1. Escolher uma AMI baseada em Linux
 
 2.1.1. Acesse a seção **EC2** no AWS Management Console e clique em **Launch Instance**.
+
 2.1.2. Escolha uma **Amazon Machine Image (AMI)** baseada em Linux, como **Ubuntu**, **Debian** ou **Amazon Linux**.
+
 2.1.3. Selecione o tipo de instância desejado (por exemplo, **t2.micro** para fins de teste).
 
 ![VPC](readme_images/ec2.png)
@@ -71,11 +77,13 @@ Este tutorial irá guiá-lo através do processo de criação de uma VPC na AWS,
 ### 2.3. Instalar na Sub-rede Pública
 
 2.3.1. Durante a configuração da instância, em **Network**, selecione a **VPC** e a **sub-rede pública** (ex: `10.0.1.0/24`).
+
 2.3.2. Ative a opção **Auto-assign Public IP** para garantir que sua instância tenha um IP público.
 
 ### 2.4. Associar um Security Group
 
 2.4.1. Crie um novo **Security Group** ou selecione um existente.
+
 2.4.2. Adicione as seguintes regras de entrada:
    - **HTTP (porta 80)**: permitir tráfego de qualquer origem.
    - **SSH (porta 22)**: permitir tráfego de sua rede (opcional, se desejar restringir o acesso via SSH).
@@ -89,7 +97,9 @@ Este tutorial irá guiá-lo através do processo de criação de uma VPC na AWS,
 ### 2.1. Comando para acesso via SSH
 
 2.1.1. Acesse um terminal Linux.
+
 2.1.2. Verifique o caminho da sua chave de acesso
+
 2.1.3. utilize `ssh -i /caminho/para/sua-chave.pem ami@ip-da-instancia`
    - **/caminho/para/sua-chave.pem**: Altere para o caminho da sua chave.
    -  **ami**: Altere para o seu tipo de AMI.
@@ -109,12 +119,16 @@ Este tutorial irá guiá-lo através do processo de instalacao do Nginx na EC2, 
 
 1.1.1. Acessado o terminal, atualize os pacotes do sistema.
 `sudo apt update && sudo apt upgrade -y`
+
 1.1.2. Instale o Nginx.
 `sudo apt install nginx -y`
+
 1.1.3. Inicialize o servico.
 `sudo systemctl start nginx`
+
 1.1.4. Verifique o status do servico.
 `sudo systemctl status nginx`
+
 1.1.5. Inicializar o servico junto com o sistema.
 `sudo systemctl enable nginx`
 
@@ -125,7 +139,10 @@ Este tutorial irá guiá-lo através do processo de instalacao do Nginx na EC2, 
 ### 2.1. Criar pagina html
 
 2.1.1. Atraves de seu editor de arquivos de preferencia, crie um arquivo `index.html` no diretorio /var/www/html/ e monte sua estrutura html.
-2.1.2. Em seu navegador de internet, insira o ip da sua instancia EC2 e voce vera sua pagina rodando se tudo ocorrer normalmente.
+`nano index.html`
+
+2.1.2. Em seu navegador de internet, insira o ip da sua instanci3.1.2 a EC2 e voce vera sua pagina rodando se tudo ocorrer normalmente.
+`http://192.168.0.1`
 
 ---
 
@@ -139,6 +156,8 @@ Este tutorial irá guiá-lo através do processo de instalacao do Nginx na EC2, 
 3.1.2 Na secao service, adicione as duas linhas abaixo
 `Restart=always
 RestartSec=5`
+
+Fara com que o arquivo reinicie sempre que der problema e ele tentara a cada 5 segundos.
 
 ---
 
@@ -156,8 +175,10 @@ O script de monitoramento e essencial para garantir a total operancia do servido
 
 1.1.1. Crie um arquivo .sh no diretorio padrao de binarios do Linux.
 `touch /usr/local/bin/monitorar_site.sh`
+
 1.1.2. Modifique a execucao do arquivo
 `chmod +x /usr/local/bin/monitorar_site.sh`
+
 1.1.3. Adicione o conteudo do arquivo monitorar_site.sh presente no repositorio para o seu arquivo atraves de seu editor de arquivo.
 
 ---
@@ -169,30 +190,39 @@ Webhooks são uma forma simples de enviar dados para o Slack a partir de outros 
 ### 2.1. Acesse o Slack API
 
 2.1.1. Acesse [Slack API](https://api.slack.com/).
+
 2.1.2. Faça login com a sua conta Slack.
 
 ### 2.2. Crie um Novo App
 
 2.2.1. No menu lateral esquerdo, clique em **Your Apps**.
+
 2.2.2. Clique no botão **Create New App**.
+
 2.2.3. Escolha a opção **From Scratch**.
+
 2.2.4. Dê um nome para o seu app (por exemplo, "Webhook de Integração") e selecione o workspace onde você deseja usar o Webhook.
+
 2.2.5. Clique em **Create App**.
 
 ### 2.3 Ative o Webhook de Entrada
 
 2.3.1. Após criar o app, no menu à esquerda, selecione **Incoming Webhooks**.
+
 2.3.2. No topo da página, ative a opção **Activate Incoming Webhooks**.
+
 2.3.3. Em seguida, clique em **Add New Webhook to Workspace**.
 
 ### 2.4. Escolha o Canal
 
 2.4.1. Você será solicitado a escolher um canal para o qual as mensagens enviadas pelo Webhook irão. Escolha o canal desejado (por exemplo, "#geral" ou outro canal específico).
+
 2.4.2. Clique em **Permitir** para conceder permissão ao Webhook.
 
 ### 2.5. Copie a URL do Webhook
 
 2.5.1. Após permitir o acesso, o Slack irá gerar uma URL única do Webhook.
+
 2.5.2. Copie essa URL, pois ela será usada para enviar mensagens para o Slack.
 `https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX`
 
@@ -204,6 +234,7 @@ Webhooks são uma forma simples de enviar dados para o Slack a partir de outros 
 
 3.1.1. No diretorio /var/log crie um arquivo chamado monitoramento.log
 `touch /var/log/monitoramento.log`
+
 3.1.2 COnfigure as permicoes de leitura e escrita.
 `chmod a+rw /var/log/monitoramento.log`
 
@@ -215,8 +246,10 @@ Webhooks são uma forma simples de enviar dados para o Slack a partir de outros 
 
 4.1.1. Execute o comando abaiuxo para acessar a tabela do cron no modo edicao.
 `crontab -e`
+
 4.1.2. Adicione o seguinte comando ao fim do arquivo.
 `*/1 * * * * /usr/local/bin/monitorar_site.sh`
+
 Isso fara com que o cron execute o script de monitoramento a cada 1 minuto.
 
 ---
@@ -227,9 +260,12 @@ Isso fara com que o cron execute o script de monitoramento a cada 1 minuto.
 
 5.1.1 No diretorio /usr/local/bin/ crie um arquivo chamado variaveis.env.
 `touch /usr/local/bin/variaveis.env`
+
 5.1.2 Adicione no arquivo usando seu editor de arquivos 2 variaveis:
    `URL="http://ip_da_sua_instancia"`
    `WEBHOOK="https://url_do_seu_webhook"`
+
+Isso protegera dados sensiveis em caso de compartilhamento do script principal.
 
 ---
 
@@ -243,5 +279,9 @@ O script de testes engloba uma serie de comandos essenciais para testar e garant
 
 1.1.1. No diretorio /usr/local/bin/ crie um arquivo chamado testes.sh
 `touch /usr/local/bin/testes.sh`
+
 1.1.2 De a permicao de execucao para todos
 `chmod a+x /usr/local/bin/testes.sh`
+
+Exemplo de funcionamento:
+
