@@ -6,8 +6,8 @@
 }
 
 body {
-    background-color: #DAC8B3;
-    color: #392620;
+    background-color: #ede8d0;
+    color: darkolivegreen;
     text-align: center;
 }
 
@@ -16,12 +16,12 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background: #392620;
+    background: #ede8d0;
 }
 
 .logo {
     font-size: 24px;
-    color: #DAC8B3;
+    color: #ede8d0;
 }
 
 nav ul {
@@ -32,14 +32,14 @@ nav ul {
 
 nav a {
     text-decoration: none;
-    color: #DAC8B3;
+    color: #ede8d0;
     font-size: 18px;
 }
 
 .hero {
     position: relative;
     height: 400px;
-    background-image: url('bg.jpg');
+    background-color: darkolivegreen;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -62,17 +62,17 @@ nav a {
 
 .btn {
     padding: 10px 20px;
-    background-color: #392620;
-    color: #FFFFFF;
+    background-color: #ede8d0;
+    color: darkolivegreen;
     border-radius: 5px;
     text-decoration: none;
     font-size: 18px;
-    border: 2px solid #392620;
+    border: 2px solid darkolivegreen;
 }
 
 .specialty {
     padding: 50px 20px;
-    background-color: #DAC8B3;
+    background-color: #ede8d0;
 }
 
 .specialty h2 {
@@ -87,7 +87,7 @@ nav a {
 }
 
 .card {
-    background: white;
+    background: #ffffff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -115,8 +115,8 @@ nav a {
 
 .card .btn {
     display: inline-block;
-    background-color: #392620;
-    color: white;
+    background-color: darkolivegreen;
+    color: #ffffff;
     padding: 8px 15px;
     border-radius: 5px;
     text-decoration: none;
