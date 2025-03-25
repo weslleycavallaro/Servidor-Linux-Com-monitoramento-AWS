@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# Anexando as variaveis locais
 source variaveis.env
 
 # Local do arquivo onde os logs serao gravados
