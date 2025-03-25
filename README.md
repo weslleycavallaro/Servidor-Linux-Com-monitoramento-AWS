@@ -244,7 +244,7 @@ Webhooks são uma forma simples de enviar dados para o Slack a partir de outros 
 
 ### 4.1. Edite a tabela do cron
 
-4.1.1. Execute o comando abaiuxo para acessar a tabela do cron no modo edicao.
+4.1.1. Execute o comando abaixo para acessar a tabela do cron no modo edicao.
 `crontab -e`
 
 4.1.2. Adicione o seguinte comando ao fim do arquivo.
