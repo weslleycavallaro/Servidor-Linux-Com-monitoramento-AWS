@@ -1,6 +1,6 @@
 # Servidor-Linux-Com-monitoramento-AWS
 
-<div style="display: flex; justify-content: space-between;">
+<div style="display: flex; justify-content: between;">
   <img src="readme_images/aws.png" width="100"/>
   <img src="readme_images/linux.png" width="100"/>
   <img src="readme_images/nginx.png" width="100"/>
