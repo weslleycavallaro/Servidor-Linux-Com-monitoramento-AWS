@@ -9,36 +9,38 @@ Este projeto utiliza a infraestrutura da AWS em conjunto com o NGINX para fornec
 ## [ETAPA 1: Configuração do Ambiente Cloud AWS](#etapa-1-configuração-do-ambiente-cloud-aws)
 - **Objetivo:** Configuração inicial da AWS, criando uma VPC, sub-redes públicas e privadas, e instância EC2.
 - **Passos principais:**
-  - Criar a VPC, com sub-redes públicas e privadas.
-  - Criar e associar um Internet Gateway à VPC.
-  - Criar e configurar uma instância EC2 com a AMI Linux desejada e associar um Security Group.
-  - Acessar a instância via SSH para garantir conectividade.
+  - [Criar a VPC](#1-criar-uma-vpc-na-aws)
+  - [Criar Sub-redes Públicas e Privadas](#1-2-criar-sub-redes-públicas-e-privadas)
+  - [Criar uma Internet Gateway](#1-3-criar-uma-internet-gateway)
+  - [Criar uma Instância EC2 na AWS](#2-criar-uma-instância-ec2-na-aws)
+  - [Acessar a Instância via SSH](#3-acessar-a-instância-via-ssh)
 
 ## [ETAPA 2: Configuração do Servidor Web](#etapa-2-configuração-do-servidor-web)
 - **Objetivo:** Instalar e configurar o NGINX para hospedar uma página web simples.
 - **Passos principais:**
-  - Instalar o servidor NGINX e configurá-lo para iniciar automaticamente com o sistema.
-  - Criar uma página HTML simples e testá-la acessando o IP público da instância EC2.
-  - Configurar o NGINX para reiniciar automaticamente caso o serviço pare.
+  - [Instalar o servidor NGINX na EC2](#1-instalar-o-servidor-nginx-na-ec2)
+  - [Criar uma página HTML simples](#2-criar-uma-página-html-simples)
+  - [Configurar o NGINX](#3-configurar-o-nginx)
 
 ## [ETAPA 3: Monitoramento e Notificações](#etapa-3-monitoramento-e-notificações)
 - **Objetivo:** Configurar um sistema de monitoramento para verificar a disponibilidade do servidor web e enviar notificações.
 - **Passos principais:**
-  - Criar um script em Bash para monitorar a disponibilidade do servidor e registrar o status.
-  - Configurar um Webhook do Slack para enviar notificações automáticas em caso de falhas.
-  - Configurar o cron para executar o script de monitoramento a cada 1 minuto.
-  - Criar variáveis de ambiente para proteger dados sensíveis, como o URL do site e o Webhook do Slack.
+  - [Criação do Script em Bash](#1-criação-do-script-em-bash)
+  - [Configurando Webhook do Slack](#2-configurando-webhook-do-slack)
+  - [Criar arquivo de logs](#3-criar-arquivo-de-logs)
+  - [Configurar o script para rodar a cada 1 minuto utilizando cron](#4-configurar-script-para-rodar-a-cada-1-minuto-utilizando-cron)
+  - [Configurar as variáveis de ambiente](#5-configurar-as-variáveis-de-ambiente)
 
 ## [ETAPA 4: Automação e Testes](#etapa-4-automação-e-testes)
 - **Objetivo:** Criar scripts para testar o sistema e automatizar os testes.
 - **Passos principais:**
-  - Criar um script de testes essenciais para verificar o funcionamento do servidor e do NGINX.
-  - Realizar testes com o NGINX (iniciar, parar e verificar o status).
-  - Verificar o recebimento de notificações no Slack durante os testes.
+  - [Criar script de teste](#1-criar-script-de-teste)
+  - [Testes](#2-testes)
 
-## [ETAPA BONUS: Automação e Testes](#etapa-4-automação-e-testes)
-- **Objetivo:** Criar scripts para testar o sistema e automatizar os testes.
-
+## [ETAPA BONUS: Automação com User Data](#etapa-bonus-userdata)
+- **Objetivo:** Automatizar a configuração da instância EC2 utilizando o campo User Data.
+- **Passos principais:**
+  - [Automação com User Data](#1-automação-com-user-data)
 
 ---
 
