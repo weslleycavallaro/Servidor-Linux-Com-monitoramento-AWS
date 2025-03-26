@@ -350,7 +350,7 @@ O script de testes engloba uma serie de comandos essenciais para testar e garant
 
 2.4. Notificacoes do Slack
 
-![Notificacoes](readme_images/slack.png)
+![Notificacoes](readme_images/notslack.png)
 
 ---
 
