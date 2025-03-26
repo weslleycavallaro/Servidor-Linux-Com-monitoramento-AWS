@@ -4,35 +4,46 @@ Este projeto utiliza a infraestrutura da AWS em conjunto com o NGINX para fornec
 
 ---
 
-## Para uma utilizacao mais rapida, voce pode clonar esse repositorio em sua instancia
-`git clone https://github.com/weslleycavallaro/Servidor-Linux-Com-monitoramento-AWS.git`
+# Sumário
+
+## [ETAPA 1: Configuração do Ambiente Cloud AWS](#etapa-1-configuração-do-ambiente-cloud-aws)
+- **Objetivo:** Configuração inicial da AWS, criando uma VPC, sub-redes públicas e privadas, e instância EC2.
+- **Passos principais:**
+  - Criar a VPC, com sub-redes públicas e privadas.
+  - Criar e associar um Internet Gateway à VPC.
+  - Criar e configurar uma instância EC2 com a AMI Linux desejada e associar um Security Group.
+  - Acessar a instância via SSH para garantir conectividade.
+
+## [ETAPA 2: Configuração do Servidor Web](#etapa-2-configuração-do-servidor-web)
+- **Objetivo:** Instalar e configurar o NGINX para hospedar uma página web simples.
+- **Passos principais:**
+  - Instalar o servidor NGINX e configurá-lo para iniciar automaticamente com o sistema.
+  - Criar uma página HTML simples e testá-la acessando o IP público da instância EC2.
+  - Configurar o NGINX para reiniciar automaticamente caso o serviço pare.
+
+## [ETAPA 3: Monitoramento e Notificações](#etapa-3-monitoramento-e-notificações)
+- **Objetivo:** Configurar um sistema de monitoramento para verificar a disponibilidade do servidor web e enviar notificações.
+- **Passos principais:**
+  - Criar um script em Bash para monitorar a disponibilidade do servidor e registrar o status.
+  - Configurar um Webhook do Slack para enviar notificações automáticas em caso de falhas.
+  - Configurar o cron para executar o script de monitoramento a cada 1 minuto.
+  - Criar variáveis de ambiente para proteger dados sensíveis, como o URL do site e o Webhook do Slack.
+
+## [ETAPA 4: Automação e Testes](#etapa-4-automação-e-testes)
+- **Objetivo:** Criar scripts para testar o sistema e automatizar os testes.
+- **Passos principais:**
+  - Criar um script de testes essenciais para verificar o funcionamento do servidor e do NGINX.
+  - Realizar testes com o NGINX (iniciar, parar e verificar o status).
+  - Verificar o recebimento de notificações no Slack durante os testes.
+
+## [ETAPA BONUS: Automação e Testes](#etapa-4-automação-e-testes)
+- **Objetivo:** Criar scripts para testar o sistema e automatizar os testes.
+
 
 ---
 
-## Passos utilizando User Data
-
-### 1.1 Acessando o User Data
-
-1.1.1. Adicione o script abaixo no campo User Data ao criar sua instancia EC2
-[LINK PARA O USERDATA](userdata/userdata.txt)
-
-## Passos a serem pulados quando usado o USER DATA
-
-## ETAPA 2:
-
-Todos os passos
-
-## ETAPA 3:
-
-PASSO 1
-
-PASSO 3
-
-PASSO 4
-
-## ETAPA 4:
-
-PASSO 1
+## Para uma utilizacao mais rapida, voce pode clonar esse repositorio em sua instancia
+`git clone https://github.com/weslleycavallaro/Servidor-Linux-Com-monitoramento-AWS.git /`
 
 ---
 
@@ -299,7 +310,7 @@ Isso protegera dados sensiveis em caso de compartilhamento do script principal.
 
 # ETAPA 4: Automacao e testes
 
-## 1. Crir script de teste
+## 1. Criar script de teste
 
 O script de testes engloba uma serie de comandos essenciais para testar e garantir o funcionamento correto do servidor.
 
@@ -328,3 +339,33 @@ O script de testes engloba uma serie de comandos essenciais para testar e garant
 2.4. Notificacoes do Slack
 
 ![Notificacoes](readme_images/slack.png)
+
+---
+
+# ETAPA BONUS: Userdata
+
+## 1. Automacao com User Data
+
+Utilizando o User Data sua instancia EC2 ja pode ser iniciada com o Nginx, HTML e o monitoramento totalmente configurados
+
+1.1.  Adicione o script abaixo no campo User Data ao criar sua instancia EC2
+
+[LINK PARA O USERDATA](userdata/userdata.txt)
+
+## Passos a serem pulados quando usado o USER DATA
+
+## ETAPA 2:
+
+Todos os passos
+
+## ETAPA 3:
+
+PASSO 1
+
+PASSO 3
+
+PASSO 4
+
+## ETAPA 4:
+
+PASSO 1
