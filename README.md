@@ -4,8 +4,35 @@ Este projeto utiliza a infraestrutura da AWS em conjunto com o NGINX para fornec
 
 ---
 
-### Para uma utilizacao mais rapida, voce pode clonar esse repositorio em sua instancia
+## Para uma utilizacao mais rapida, voce pode clonar esse repositorio em sua instancia
 `git clone https://github.com/weslleycavallaro/Servidor-Linux-Com-monitoramento-AWS.git`
+
+---
+
+## Passos utilizando User Data
+
+### 1.1 Acessando o User Data
+
+1.1.1. Adicione o script abaixo no campo User Data ao criar sua instancia EC2
+[LINK PARA O USERDATA](userdata/userdata.txt)
+
+## Passos a serem pulados quando usado o USER DATA
+
+## ETAPA 2:
+
+Todos os passos
+
+## ETAPA 3:
+
+PASSO 1
+
+PASSO 3
+
+PASSO 4
+
+## ETAPA 4:
+
+PASSO 1
 
 ---
 
@@ -18,6 +45,7 @@ Este tutorial irá guiá-lo através do processo de criação de uma VPC na AWS,
 ## 1. Criar uma VPC na AWS
 
 ### 1.1. Criar a VPC
+
 1.1.1 Acesse o [Console AWS](https://aws.amazon.com/console/) e navegue até a seção **VPC**.
 
 1.1.2 Clique em **Create VPC** e siga as instruções.
