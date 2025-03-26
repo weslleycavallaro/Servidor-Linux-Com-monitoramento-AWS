@@ -1,0 +1,68 @@
+#!/bin/bash
+
+# Atualizar pacotes existentes
+apt-get update -y
+
+# Instalar o Nginx
+apt-get install nginx -y
+
+################################################
+# nginx
+################################################
+
+# Iniciar o Nginx
+systemctl start nginx
+
+# Habilitar o Nginx para iniciar com o sistema
+systemctl enable nginx
+
+# Adiciona Restart=always e RestartSec=5 no service do arquivo nginx.service
+sed -i '/\[Service\]/a Restart=always\nRestartSec=5' /lib/systemd/system/nginx.service
+
+################################################
+# repositorio
+################################################
+
+# Clonar o diretório com os arquivos
+git clone https://github.com/weslleycavallaro/Servidor-Linux-Com-monitoramento-AWS.git /
+
+################################################
+# html
+################################################
+
+# Verificar se o diretório /var/www/html existe
+if [ -d "/var/www/html" ]; then
+    # Remover o diretório /var/www/html existente
+    rm -rf /var/www/html
+fi
+
+# Mover o conteúdo clonado para o diretório /var/www/html
+mv /Servidor-Linux-Com-monitoramento-AWS/html /var/www/
+
+################################################
+# monitoramento
+################################################
+
+# Mover o script de monitoramento para o diretório destino
+mv /Servidor-Linux-Com-monitoramento-AWS/scripts/monitorar_site.sh /usr/local/bin/
+
+# Permitir execução ao script de monitoramento
+chmod +x /usr/local/bin/monitorar_site.sh
+
+# Criar o arquivo de log
+touch /var/log/monitoramento.log
+
+# Altera a visibilidade para todos
+chmod +r /var/log/monitoramento.log
+
+# Adiciona a linha ao final do crontab para rodar o script a cada 1 minuto
+(crontab -l 2>/dev/null; echo "*/1 * * * * /usr/local/bin/monitorar_site.sh") | crontab -
+
+# Criar o arquivo de variáveis de ambiente
+touch /usr/local/bin/variaveis.sh
+
+# Mover o arquivo de testes do repositório
+mv /Servidor-Linux-Com-monitoramento-AWS/scripts/teste.sh /usr/local/bin/
+
+# Conceder permissões de execução para todos os usuários no script clonados
+chmod a+x /usr/local/bin/teste.sh
