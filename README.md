@@ -1,6 +1,6 @@
 # Servidor-Linux-Com-monitoramento-AWS
 
-<img src="readme_images/aws.png" width="100"/>
+<img src="https://logospng.org/download/amazon-web-services/logo-amazon-web-services-256.png" /></a>
 <img src="html/2.png" width="100"/>
 <img src="readme_images/linux.png" width="100"/>
 
