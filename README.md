@@ -6,6 +6,8 @@ Este projeto utiliza a infraestrutura da AWS em conjunto com o NGINX para fornec
 
 # Sumário
 
+`Leia todas as etapas antes de iniciar`
+
 ## ☁️ ETAPA 1: Configuração do Ambiente Cloud AWS
 - **Objetivo:** Configuração inicial da AWS, criando uma VPC, sub-redes públicas e privadas, e instância EC2.
 - **Passos principais:**
