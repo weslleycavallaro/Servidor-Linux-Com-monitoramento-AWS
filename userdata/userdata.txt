@@ -56,7 +56,7 @@ chmod +x /usr/local/bin/monitorar_site.sh
 touch /var/log/monitoramento.log
 
 # Altera a visibilidade para todos
-chmod 664 /var/log/monitoramento.log
+chmod 777 /var/log/monitoramento.log
 
 # Adiciona a linha ao final do crontab para rodar o script a cada 1 minuto
 (crontab -l 2>/dev/null; echo "*/1 * * * * /usr/local/bin/monitorar_site.sh") | crontab -
@@ -67,6 +67,6 @@ touch /usr/local/bin/variaveis.env
 # Mover o arquivo de testes do repositório
 mv /home/Servidor-Linux-Com-monitoramento-AWS/scripts/teste.sh /usr/local/bin/
 
-# Conceder permissões de execução para todos os usuários no script clonados
+# Conceder permissões de execução para todos os usuários no script
 chmod 755 /usr/local/bin/teste.sh
 
