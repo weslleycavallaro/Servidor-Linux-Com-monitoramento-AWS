@@ -364,20 +364,19 @@ Utilizando o User Data sua instancia EC2 ja pode ser iniciada com o Nginx, HTML 
 
 [LINK PARA O USERDATA](userdata/userdata.txt)
 
-## Passos a serem pulados quando usado o USER DATA
+# Passos a serem feitos quando usado o USER DATA
 
-## ETAPA 2:
+## ETAPA 1:
 
-Todos os passos
+1. Criar uma VPC na AWS
+2. Criar uma Instância EC2 na AWS
+3. Acessar a Instância via SSH
 
 ## ETAPA 3:
 
-PASSO 1
-
-PASSO 3
-
-PASSO 4
+2. Configurando Webhook do Slack
+5. Configurando as variaveis de ambiente.
 
 ## ETAPA 4:
 
-PASSO 1
+2. Testes
