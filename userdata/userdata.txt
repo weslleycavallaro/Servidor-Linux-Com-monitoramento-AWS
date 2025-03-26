@@ -6,6 +6,9 @@ apt-get update -y
 # Instalar o Nginx
 apt-get install nginx -y
 
+# Instalando o git
+apt-get install git -y
+
 ################################################
 # nginx
 ################################################
@@ -24,7 +27,7 @@ sed -i '/\[Service\]/a Restart=always\nRestartSec=5' /lib/systemd/system/nginx.s
 ################################################
 
 # Clonar o diretório com os arquivos
-git clone https://github.com/weslleycavallaro/Servidor-Linux-Com-monitoramento-AWS.git /
+git clone https://github.com/weslleycavallaro/Servidor-Linux-Com-monitoramento-AWS.git /home/Servidor-Linux-Com-monitoramento-AWS
 
 ################################################
 # html
@@ -37,14 +40,14 @@ if [ -d "/var/www/html" ]; then
 fi
 
 # Mover o conteúdo clonado para o diretório /var/www/html
-mv /Servidor-Linux-Com-monitoramento-AWS/html /var/www/
+mv /home/Servidor-Linux-Com-monitoramento-AWS/html /var/www/
 
 ################################################
 # monitoramento
 ################################################
 
 # Mover o script de monitoramento para o diretório destino
-mv /Servidor-Linux-Com-monitoramento-AWS/scripts/monitorar_site.sh /usr/local/bin/
+mv /home/Servidor-Linux-Com-monitoramento-AWS/scripts/monitorar_site.sh /usr/local/bin/
 
 # Permitir execução ao script de monitoramento
 chmod +x /usr/local/bin/monitorar_site.sh
@@ -53,7 +56,7 @@ chmod +x /usr/local/bin/monitorar_site.sh
 touch /var/log/monitoramento.log
 
 # Altera a visibilidade para todos
-chmod +r /var/log/monitoramento.log
+chmod 664 /var/log/monitoramento.log
 
 # Adiciona a linha ao final do crontab para rodar o script a cada 1 minuto
 (crontab -l 2>/dev/null; echo "*/1 * * * * /usr/local/bin/monitorar_site.sh") | crontab -
@@ -65,4 +68,5 @@ touch /usr/local/bin/variaveis.sh
 mv /Servidor-Linux-Com-monitoramento-AWS/scripts/teste.sh /usr/local/bin/
 
 # Conceder permissões de execução para todos os usuários no script clonados
-chmod a+x /usr/local/bin/teste.sh
+chmod 755 /usr/local/bin/teste.sh
+
